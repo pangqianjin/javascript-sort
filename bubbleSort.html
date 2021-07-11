@@ -1,0 +1,29 @@
+<!DOCTYpE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>冒泡排序</title>
+</head>
+<body>
+    <script>
+        const arr = [2, 44, 1, 0, -22, 56, -78];
+        // arr.sort((a,b)=>a-b)
+        function bubbleSort(arr){
+            let tmp;
+            for(let i=arr.length; i>0; i--){// 较大的arr[j]会冒泡到arr的尾部
+                for(let j=0; j<i-1; j++){
+                    if(arr[j]>arr[j+1]){// 前一个元素比或一个大，则向后冒泡(交换)
+                        tmp = arr[j];
+                        arr[j] = arr[j+1];
+                        arr[j+1] = tmp;
+                    }
+                }
+            }
+            return arr;
+        }
+        console.log(bubbleSort(arr));// [-78, -22, 0, 1, 2, 44, 56]
+    </script>
+</body>
+</html>
