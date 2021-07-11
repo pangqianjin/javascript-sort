@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>希尔排序</title>
+</head>
+<body>
+    <script>
+        /*
+        希尔排序是改进的插入排序，
+
+        */
+        const arr = [2, 44, 1, 0, -22, 56, -78];
+        function shallSort(arr){
+            // 增量每次/2且向下取整
+            for(let step=Math.floor(arr.length/2); step>0; step=Math.floor(step/2)){
+                // 从增量那一组开始进行插入排序，直至完毕
+                for(let i=step; i<arr.length; i++){
+                    let j = i;
+                    let current = arr[i];
+                    // preIndex-step是与它同组的其它元素
+                    while(j-step>=0 && arr[j-step]>current){
+                        arr[j] = arr[j-step];
+                        j -= step;
+                    }
+                    arr[j] = current;
+                }
+            }
+
+            return arr;
+        }
+        console.log(shallSort(arr));
+    </script>
+</body>
+</html>
